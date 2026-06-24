@@ -1,17 +1,35 @@
+import { useState } from "react";
+
 function App() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState ([]);
+
+  const addTask = () => {
+    if (task.trim() === "") return;
+
+    setTasks([...tasks, task]);
+    setTask("");
+  }
   return (
     <div>
       <h1>Task Management App</h1>
      
      <h2>Todo List</h2>
 
-     <input type="text" placeholder="Enter a task" />
-     <button>Add Task</button>
+     <input 
+     type="text" 
+     placeholder="Enter a task" 
+     value={task}
+     onChange={(e) => setTask(e.target.value)}
+     />
+     
+     <button onClick={addTask}>Add Task</button>
 
      <ul>
-       <li>Study React</li>
-       <li>Finish Homework</li>
-       <li>Buy Groceries</li>
+     {tasks.map((item,index) => (
+      <li key={index}>{item}</li>
+     
+  ))}
      </ul>
     </div>
   );
