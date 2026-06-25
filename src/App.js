@@ -7,9 +7,16 @@ function App() {
   const addTask = () => {
     if (task.trim() === "") return;
 
-    setTasks([...tasks, task]);
-    setTask("");
-  }
+    setTasks([
+      ...tasks, 
+     {
+       text: task,
+       completed: false,
+     },
+    ]);
+
+     setTask("");
+  };
   return (
     <div>
       <h1>Task Management App</h1>
@@ -28,13 +35,27 @@ function App() {
      <ul>
      {tasks.map((item,index) => (
       <li key={index}>
-        {item}
+        <span
+          style={{
+            textDecoration: item.completed ? "line-through" : "none",
+          }}
+          >
+            {item.text}
+            </span>
+
         <button
-         onClick={() => 
-           setTasks(task.filter((_, i) => i !== index))
-         }
-        >
-          Delete
+         onClick={() => {
+            const updatedTasks = [...tasks];
+            updatedTasks[index].completed =
+               !updatedTasks[index].completed;
+              setTasks(updatedTasks);
+         }}
+         >
+           complete
+           </button>
+
+           <button onClick={() => setTasks(tasks.filter((_, i) => i !== index))}>
+           Delete
           </button>
         </li>
      ))}
