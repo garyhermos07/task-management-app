@@ -3,6 +3,7 @@ import { useState } from "react";
 function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState ([]);
+  const [filter, setFilter] = useState("all");
 
   const addTask = () => {
     if (task.trim() === "") return;
@@ -17,6 +18,19 @@ function App() {
 
      setTask("");
   };
+
+     const filteredTasks = tasks.filter((item) => {
+      if (filter === "completed") {
+         return item.completed;
+      }
+
+       if (filter === "incomplete") {
+         return !item.completed;
+       }
+         
+         return true;
+
+     });
   return (
     <div>
       <h1>Task Management App</h1>
@@ -31,9 +45,20 @@ function App() {
      />
      
      <button onClick={addTask}>Add Task</button>
+        <div>
+          <button onClick={() => setFilter("all")}>All</button>
+
+          <button onClick={() => setFilter("completed")}>
+            Completed
+          </button>
+
+          <button onClick={() => setFilter("incomplete")}>
+            Incomplete
+          </button>
+        </div>
 
      <ul>
-     {tasks.map((item,index) => (
+     {filteredTasks.map((item,index) => (
       <li key={index}>
         <span
           style={{
