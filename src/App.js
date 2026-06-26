@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Contact from "./Contact";
+
 
 function App() {
   const [task, setTask] = useState("");
@@ -33,9 +36,18 @@ function App() {
      });
   return (
     <div>
-      <h1>Task Management App</h1>
+      <nav>
+        <Link to="/">Todos</Link> | <Link to="/contact">Contact</Link>
+      </nav>
+
+        <Routes>
+           <Route
+             path="/"
+             element={
+              <div>
+               <h1>Task Management App</h1>
      
-     <h2>Todo List</h2>
+               <h2>Todo List</h2>
 
      <input 
      type="text" 
@@ -86,6 +98,11 @@ function App() {
      ))}
      </ul>
     </div>
+  }
+  />
+   <Route path="/contact" element={<Contact />} />
+   </Routes>
+   </div>
   );
 }
 
