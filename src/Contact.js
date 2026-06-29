@@ -5,9 +5,20 @@ function Contact() {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState ("");
     const [comments, setComments] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("Thank you! Your message has been submitted.");
+
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setComments("");
+    }
     
     return (
         <div>
+            <form onSubmit={handleSubmit}>
             <h1>Contact Us</h1>
 
              <input
@@ -45,7 +56,8 @@ function Contact() {
 
                 <br /><br />
 
-                <button>Submit</button>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 }
