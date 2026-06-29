@@ -71,6 +71,7 @@ function App() {
           </button>
         </div>
 
+     {filteredTasks.length === 0 && <p>No tasks available.</p>}
      <ul>
      {filteredTasks.map((item,index) => (
       <li key={index}>
