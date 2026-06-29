@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Contact from "./Contact";
+import "./App.css";
 
 
 function App() {
