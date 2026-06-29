@@ -38,6 +38,7 @@ function App() {
   return (
     <div>
       <nav>
+        <h2>Task Management App</h2>
         <Link to="/">Todos</Link> | <Link to="/contact">Contact</Link>
       </nav>
 
