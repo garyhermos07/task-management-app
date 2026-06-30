@@ -34,3 +34,10 @@ Presentational Components
 - TodoList 
 - TodoItem
 - ContactForm 
+
+## Wireframes
+
+### Todo Page 
+![Todo Wireframe](src/wireframes/todo-wireframe.png)
+### Contact Page
+![Contact Wireframe](src/wireframes/contact-wireframe.png)

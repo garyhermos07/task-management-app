@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Contact from "./Contact";
 import "./App.css";
 
@@ -39,12 +39,13 @@ function App() {
     <div>
       <nav>
         <h2>Task Management App</h2>
-        <Link to="/">Todos</Link> | <Link to="/contact">Contact</Link>
+        <Link to="/todos">Todos</Link> | <Link to="/contact">Contact</Link>
       </nav>
 
         <Routes>
+           <Route path="/" element={<Navigate to="/todos" />} />
            <Route
-             path="/"
+             path="/todos"
              element={
               <div>
                <h1>Task Management App</h1>
