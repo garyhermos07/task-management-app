@@ -43,7 +43,7 @@ function App() {
       </nav>
 
         <Routes>
-           <Route path="/" element={<Navigate to="/todos" />} />
+           <Route path="/" element={<Navigate to="/todos" replace />} />
            <Route
              path="/todos"
              element={
